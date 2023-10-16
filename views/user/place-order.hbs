@@ -1,0 +1,149 @@
+
+
+<section>
+
+
+    <div class="container">
+
+
+
+        <div class="container">
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-5  bg-white  mr-1" style="margin-top:12%">
+                <form method="post" id="checkout-form">
+                    <h4 class="mt-2">Delivery Details</h4>
+
+                    <label for="" class="mt-2">Full Name</label>
+                    <input type="text" placeholder="Name" class="form-control mt-1" id="Name" name="name">
+
+                    <label for="" class="mt-2">Address</label>
+                    <input type="text" placeholder="Address" class="form-control mt-1" id="Address" name="address">
+
+                    <label for="" class="mt-2">Pincode</label>
+                    <input type="text" placeholder="Pincode" class="form-control mt-1" id="Pincode" name="pincode">
+
+
+                    <label for="" class="mt-2">Mobile No</label>
+                    <input type="number" placeholder="mobile" class="form-control  mt-1" id="Mobile" name="mobile">
+
+                    <label for="" class="mt-2"> Email Address </label>
+                    <input type="email" placeholder="email" name="email" class="form-control mt-1 mb-4 "
+                        id="Emailaddress">
+
+                    <input type="text" name="userId" id="" value="{{user._id}}" hidden>
+
+            </div>
+            <div class="col-md-5 bg-white " style="margin-top:14%">
+
+                <h5 class="mt-2">Total Amount:{{total}}</h5>
+                <hr>
+                <h6 class="mt-1"> Payment Method</h6>
+
+                <div class="form-check mt-5 ml-4">
+                    <input class="form-check-input" type="radio" name="payment-method" id="flexRadioDefault1"
+                        value="COD">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        <h6>COD(cash on delivery)</h6>
+                    </label>
+                </div>
+                <div class="form-check ml-4">
+                    <input class="form-check-input" type="radio" name="payment-method" id="flexRadioDefault2"
+                        value="ONLINE">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        <h6>ONLINE PAYMENT</h6>
+                    </label>
+                </div>
+
+                <div class="float-right mb-1">
+                    <button class="btn btn-success " type="submit">Continue</button>
+                </div>
+                <div>
+                    <h6 style="margin-top: 16%;"><img
+                            src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/shield_5f9216.png"
+                            alt="" srcset="" width="25" height="30">
+
+                        Safe and Secure Payments. Easy returns. 100% Authentic products.
+
+                    </h6>
+                </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+  <script>
+
+    $("#checkout-form").submit((e) => {
+        e.preventDefault();
+        $.ajax({
+            url: '/place-order',
+            method: 'post',
+            data: $('#checkout-form').serialize(),
+            success: (response) => {
+                if (response.codSuccess) {
+                    window.location.href = '/order-status';
+                } else {
+                    razorpayPayment(response);
+                }
+            }
+        });
+    });
+
+    function razorpayPayment(order) {
+        var options = {
+            "key": "rzp_test_RygQDbYDdDM0j8", // Enter the Key ID generated from the Dashboard
+            "amount": order.amount , // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "Shopping cart", // Your business name
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": order.id, // This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": function (response) {
+
+                verifyPayment(response, order);
+            },
+            "prefill": {
+                "name": "Gaurav Kumar", // Your customer's name
+                "email": "gaurav.kumar@example.com",
+                "contact": "9000090000" // Provide the customer's phone number for better conversion rates
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+    }
+
+    function verifyPayment(payment, order) {
+        $.ajax({
+            url: '/verify-payment',
+            data: {
+                payment,
+                order
+            },
+            method: 'post',
+            success:(response)=>{
+                if(response.status){
+                    window.location.href = '/order-status';
+                }else{
+                    alert("payment Failed")
+                }
+            }
+        });
+    }
+
+    
+
+</script>

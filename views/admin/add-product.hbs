@@ -1,0 +1,292 @@
+<style>
+    body {
+        background-image: url(/images/cart.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<section class="container">
+    <div class="row">
+
+        <div class="col-md-4 mt-5 bg-light">
+            <form enctype="multipart/form-data" method="post" action="/admin/add-product" id="addProductForm">
+                <div >
+                      <img id="previewImage" src="#" alt="Preview Image" style="display: none;" class="img-fluid mt-3 mb-3">
+                    <input type="file" id="imageInput">
+                  
+                    <br>
+                </div>
+
+
+                <div class="mt-4 mb-5 ml-2">
+                    <input type="submit" value="Submit" class="btn btn-success mt-4">
+                </div>
+        </div>
+        <div class="col-md-8 mt-5 bg-light">
+            <div class="mb-3 mt-4">
+                <label for="name">Name</label>
+                <input type="text" name="Name" class="form-control" id="name">
+            </div>
+
+
+            <div class="mb-3 ">
+
+                <label for="category">category</label>
+                <input type="text" name="Category" class="form-control" id="category">
+            </div>
+
+
+            <div class="mb-2 mt-4">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" rows="8" name="Description"></textarea>
+
+
+            </div>
+
+
+            <div class="mb-2 mt-4">
+                <label for="days">Days</label>
+                <input type="text" name="Days" class="form-control" id="days">
+            </div>
+
+
+            <div>
+                <label for="price">Price</label>
+                <input type="text" name="Price" class="form-control" id="price">
+
+            </div>
+
+
+            <div class="bg-light mt-3 col-md-12" style="width: 100%;">
+                <span>Bank Offer5% Unlimited Cashback on DeKart Axes Bank Credit Card</span>
+                <span>Bank Offer15% Instant discount on first Pay Later order of ₹500 and above</span>
+                <span>Partner OfferBuy and Get Free 6 months Gaena Plus Subscription</span>
+                <span>No Cost EMI on Bajoj Finserv EMI Card on cart value above ₹2999</span>
+            </div>
+
+
+            <div class="mt-5 ml-5">
+                <img class="img-thumbnail " style="width: 63px;" src="/images/delivery-truck_1981868.png" alt=""
+                    srcset="">
+                <img class="img-thumbnail ml-4 " style="width: 63px;" src="/images/replacement.png" alt="" srcset="">
+                <img class="img-thumbnail ml-4 " style="width: 63px;" src="/images/warrnty.png" alt="" srcset="">
+
+                <p> <span>Cash on</span> <br> delivery</p>
+
+                <p style="margin-left: 83px; margin-top:-63px"> <span class="ml-3">7-days</span> <br> replacement
+                </p>
+
+                <p style="margin-left: 190px; margin-top:-63px"><span>1 Year</span> <br> Warranty</p>
+            </div>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                        <td>
+                            <h4>Specifications</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>Details</h5> <br>
+
+                            <table class="table caption-top">
+
+                                <thead>
+                                    <tr>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                        <td>
+                                            <input type="text" name="spec1" placeholder="...."
+                                                class="form-control mt-4">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" name="spec5" placeholder="...."
+                                                class="form-control mt-4">
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            <input type="text" name="spec2" placeholder="...."
+                                                class="form-control mt-4">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="spec6" placeholder="...."
+                                                class="form-control mt-4">
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            <input type="text" name="spec3" placeholder="...."
+                                                class="form-control mt-4">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="spec7" placeholder="...."
+                                                class="form-control mt-4">
+                                        </td>
+
+                                    </tr>
+
+
+
+                                    <tr>
+                                        <td>
+                                            <input type="text" name="spec4" placeholder="...."
+                                                class="form-control mt-4">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="spec8" placeholder="...."
+                                                class="form-control mt-4">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <input type="text" name="spec9" placeholder="...."
+                                                class="form-control mt-4">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="spec11" placeholder="...."
+                                                class="form-control mt-4">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <input type="text" name="spec10" placeholder="...."
+                                                class="form-control mt-4">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="spec12" placeholder="...."
+                                                class="form-control mt-4">
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </form>
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<script>
+    document.getElementById('addProductForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get form inputs
+        var nameInput = document.getElementById('name');
+        var categoryInput = document.getElementById('category');
+        var descriptionInput = document.getElementById('description');
+        var daysInput = document.getElementById('days');
+        var priceInput = document.getElementById('price');
+
+        // Perform validation
+        var isValid = true;
+
+        if (nameInput.value.trim() === '') {
+            isValid = false;
+            nameInput.classList.add('error');
+        } else {
+            nameInput.classList.remove('error');
+        }
+
+        if (categoryInput.value.trim() === '') {
+            isValid = false;
+            categoryInput.classList.add('error');
+        } else {
+            categoryInput.classList.remove('error');
+        }
+
+        if (descriptionInput.value.trim() === '') {
+            isValid = false;
+            descriptionInput.classList.add('error');
+        } else {
+            descriptionInput.classList.remove('error');
+        }
+
+        if (daysInput.value.trim() === '') {
+            isValid = false;
+            daysInput.classList.add('error');
+        } else {
+            daysInput.classList.remove('error');
+        }
+
+        if (priceInput.value.trim() === '') {
+            isValid = false;
+            priceInput.classList.add('error');
+        } else {
+            priceInput.classList.remove('error');
+        }
+
+        // Submit the form if valid
+        if (isValid) {
+            this.submit();
+        }
+    });
+
+
+
+
+    // Get the file input and image element
+var imageInput = document.getElementById('imageInput');
+var previewImage = document.getElementById('previewImage');
+
+// Add event listener to the file input
+imageInput.addEventListener('change', function() {
+  // Check if a file is selected
+  if (imageInput.files && imageInput.files[0]) {
+    var reader = new FileReader();
+
+    // Read the selected file as data URL
+    reader.onload = function(e) {
+      // Set the source of the preview image to the data URL
+      previewImage.src = e.target.result;
+      previewImage.style.display = 'block'; // Show the image
+    };
+
+    // Read the file as data URL
+    reader.readAsDataURL(imageInput.files[0]);
+  }
+});
+
+
+</script>
+
+
+<style>
+    .error {
+        border-color: red;
+    }
+</style>

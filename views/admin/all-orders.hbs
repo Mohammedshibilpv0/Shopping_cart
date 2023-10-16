@@ -1,0 +1,66 @@
+<style>
+  body {
+    background-image: url(/images/cart.jpg);
+    background-size: cover;
+    background-position:center;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+
+
+<section>
+
+
+
+
+  <div class="container mt-5 ">
+
+
+    <div class="row col-md-12">
+
+
+      <table class="table  table-md-12">
+        <thead>
+          <tr>
+               <th>
+                Date
+               </th>
+               <th>
+                DeliveryDetails
+               </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {{#each orders}}
+          
+
+          <tr>
+            <th scope="row">{{this.date}} </th> 
+            <td> <h6> Address:{{this.deliveryDetails.address}}</h6>  <h6>Pincode: {{this.deliveryDetails.pincode}}</h6>
+            <h6>Mobile:{{this.deliveryDetails.mobile}}</h6>
+            <h6>Price:₹{{this.totalAmount}}</h6>
+            <h6>PaymentType:{{this.paymentMethod}}</h6>
+            <h6>Status:{{this.status}}</h6>
+           <a href="/View-Order-Product/{{this._id}}" class="btn btn-primary">View Products</a>
+            </td>
+          </tr>
+            
+              
+              
+            
+             
+
+
+          
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+

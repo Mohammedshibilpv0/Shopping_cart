@@ -1,0 +1,204 @@
+<style>
+    body {
+        background-image: url(/images/cart.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<section class="container">
+    <div class="row">
+
+        <div class="col-md-4 mt-5 bg-light">
+            <form enctype="multipart/form-data" method="post" action="/admin/edit-product/{{product._id}}">
+                <img src="/product-images/{{product._id}}.jpg" alt="" id="imgView" class="img-fluid mt-3 mb-3">
+                <input type="file" name="Image" class="mt-5" onchange="viewImage(event)">
+
+                <div class="mt-4 mb-5 ml-2">
+                    <input type="submit" value="Submit" class="btn btn-success mt-4">
+                </div>
+        </div>
+        <div class="col-md-8 mt-5 bg-light">
+            <div class="mb-3 mt-4">
+                <label for="">Name</label>
+                <input type="text" name="Name" class="form-control col-md-9" value="{{product.Name}}">
+
+            </div>
+
+
+            <div class="mb-3 ">
+
+                <label for="">category</label>
+                <input type="text" name="Category" class="form-control col-md-9" value="{{product.Category}}">
+            </div>
+
+
+            <div class="mb-2 mt-4">
+                <label for="">Description</label>
+                <textarea class="form-control" id="textAreaExample2" rows="8" name="Description"
+                    value="{{product.Description}}">{{product.Description}}</textarea>
+
+            </div>
+
+
+            <div class="mb-2 mt-4">
+                <label for="">Days</label>
+                <input type="text" name="Rating" class="form-control col-md-9" value="{{product.Days}}">
+
+            </div>
+
+
+            <div>
+                <label for="">Price</label>
+                <input type="text" name="Price" class="form-control col-md-9" value="{{product.Price}}">
+
+            </div>
+
+
+            <div class="bg-light mt-3 col-md-12" style="width: 100%;">
+                <span>Bank Offer5% Unlimited Cashback on DeKart Axes Bank Credit Card</span>
+                <span>Bank Offer15% Instant discount on first Pay Later order of ₹500 and above</span>
+                <span>Partner OfferBuy and Get Free 6 months Gaena Plus Subscription</span>
+                <span>No Cost EMI on Bajoj Finserv EMI Card on cart value above ₹2999</span>
+            </div>
+
+
+            <div class="mt-5 ml-5">
+                <img class="img-thumbnail " style="width: 63px;" src="/images/delivery-truck_1981868.png" alt=""
+                    srcset="">
+                <img class="img-thumbnail ml-4 " style="width: 63px;" src="/images/replacement.png" alt="" srcset="">
+                <img class="img-thumbnail ml-4 " style="width: 63px;" src="/images/warrnty.png" alt="" srcset="">
+
+                <p> <span>Cash on</span> <br> delivery</p>
+
+                <p style="margin-left: 83px; margin-top:-63px"> <span class="ml-3">7-days</span> <br> replacement
+                </p>
+
+                <p style="margin-left: 190px; margin-top:-63px"><span>1 Year</span> <br> Warranty</p>
+            </div>
+
+            <table class="table table-bordered mt-5">
+                <thead>
+                    <tr>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                        <td>
+                            <h4>Specifications</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>Details</h5>
+
+                            <table class="table caption-top">
+
+                                <thead>
+                                    <tr>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                        <td>
+                                            <input type="text" name="spec1" placeholder="...." class="form-control mt-4"
+                                                value="{{this.product.spec1}}">
+                                        </td>
+
+                                        <td>
+                                            <input type="text" name="spec5" placeholder="...." class="form-control mt-4"
+                                                value="{{this.product.spec5}}">
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            <input type="text" name="spec2" placeholder="...." class="form-control mt-4"
+                                                value="{{this.product.spec2}}">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="spec6" placeholder="...."
+                                                class="form-control mt-4 " value="{{this.product.spec6}}">
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            <input type="text" name="spec3" placeholder="...." class="form-control mt-4"
+                                                value="{{this.product.spec3}}">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="spec7" placeholder="...." class="form-control mt-4"
+                                                value="{{this.product.spec7}}">
+                                        </td>
+
+                                    </tr>
+
+
+
+                                    <tr>
+                                        <td>
+                                            <input type="text" name="spec4" placeholder="...." class="form-control mt-4"
+                                                value="{{this.product.spec4}}">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="spec8" placeholder="...."
+                                                class="form-control mt-4 " value="{{this.product.spec8}}">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <input type="text" name="spec9" placeholder="...." class="form-control mt-4"
+                                                value="{{this.product.spec9}}">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="spec11" placeholder="...."
+                                                class="form-control mt-4" value="{{this.product.spec11}}">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <input type="text" name="spec10" placeholder="...."
+                                                class="form-control mt-4" value="{{this.product.spec10}}">
+                                        </td>
+                                        <td>
+                                            <input type="text" name="spec12" placeholder="...."
+                                                class="form-control mt-4" value="{{this.product.spec11}}">
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        </form>
+    </div>
+
+
+</section>
+
+<script>
+    function viewImage(event) {
+        document.getElementById('imgView').src = URL.createObjectURL(event.target.files[0])
+    }
+</script>

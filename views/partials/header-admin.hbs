@@ -1,0 +1,59 @@
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light " style="font-family:Arial, Helvetica, sans-serif;color:white; background-color: #2874f0;">
+            <a class="navbar-brand" href="/admin">Admin Panel</a>
+
+            
+            
+            {{#if status}}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/admin">All Products <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/all-orders">All orders</a>
+                    </li>
+                       <li class="nav-item">
+                        <a class="nav-link" href="/admin/alluser">All Users</a>
+                    </li>
+
+                     </li>
+                       
+                  
+                    
+                </ul>
+                <div class="dropdown " style="margin-right: 7%;">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{#if status}}
+
+                    {{status.Name}}
+                    
+                    {{else}}
+
+                  Account
+                  {{/if}}
+                </button>
+
+        <div class="dropdown-menu mt-4" aria-labelledby="dropdownMenuButton">
+                    {{#if status}}
+
+                    <a class="dropdown-item text-center" style="width: -1px;" href="/admin/logout" ><i class="fa-solid fa-right-from-bracket " style="color: #000000;"></i>Logout</a>
+                    {{else}}
+                    
+                  
+                  {{/if}}
+                
+                    
+                </div>
+                  
+                {{/if}}
+                
+            </div>
+        </nav>
+    </header>

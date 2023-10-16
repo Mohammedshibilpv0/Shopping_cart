@@ -1,0 +1,98 @@
+
+<div class="container ">
+
+  <table class="table col-md-6 bg-light mt-5">
+
+    <thead>
+      <tr>
+
+
+
+
+
+
+      </tr>
+    </thead>
+    <tbody>
+      {{#each products}}
+      <tr>
+        <th scope="row">
+          <img class="thumbnail ml-3" style="width: 100px; height: 100px;overflow: hidden; margin: auto;"
+            src="/product-images/{{this.product._id}}.jpg" alt="" srcset=""> <br> <br>
+
+          <button class=" cart-item-count mt-2 ml-3 btn btn-primary " style="width:40px;"
+            onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',-1)">-</button>
+
+          <span id="{{this.product._id}}">{{this.quantity}}</span>
+
+          <button class=" cart-item-count mt-2 btn btn-primary " style="width:40px;"
+            onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../user._id}}',1)">+</button>
+        </th>
+        <td>
+
+          <h5>{{this.product.Name}}</h5><br>
+          <h6>Delivery with in {{this.product.Days}}</h6>
+          <p style="font-weight: bold;">
+            <i class="fa-solid fa-indian-rupee-sign " style="color: #000000;"></i>
+            {{this.product.Price}}
+          </p>
+
+
+
+   
+
+        </td>
+      </tr>
+      {{/each}}
+
+  </table>
+</div>
+<div class="container">
+   {{#if count}}
+  <form action="" class=" table bg-white pt-3 pb-5 col-md-6 ">
+    <label for="totalAmount" id="totalAmount">
+      <h5 class=" mt-2 ">Total Amount: <span id="total">{{totalValue}}</span></h5>
+    </label>
+    <hr>
+   
+    <a href="/place-order" class="float-right   btn btn-success" style="margin-bottom: 10PX;">Place Order</a>
+    
+    {{else}}
+
+   
+ <div align="center" class=" bg-white pt-3 pb-5 ">
+      <h4 style="text-align: center;" class="mt-3"> No products added</h4>
+
+      <a href="/" class=" mt-2  btn btn-success ">continue shopping</a>
+    </div>
+    {{/if}}
+  </form>
+</div>
+
+<script>
+  function changeQuantity(cartId, proId, userId, count) {
+    let quantity = parseInt(document.getElementById(proId).innerHTML);
+    count = parseInt(count);
+    console.log(userId);
+    $.ajax({
+      url: '/change-product-quantity',
+      data: {
+        user: userId,
+        cart: cartId,
+        product: proId,
+        count: count,
+        quantity: quantity,
+      },
+      method: 'post',
+      success: (response) => {
+        if (response.removeProduct) {
+          alert("Product Removed From Cart");
+          location.reload();
+        } else {
+          document.getElementById(proId).innerHTML = quantity + count;
+          document.getElementById('total').innerHTML = response.total;
+        }
+      },
+    });
+  }
+</script>

@@ -1,0 +1,54 @@
+    <style>
+  body {
+    background-image: url(/images/cart.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+  }
+
+
+</style>
+<div class="container ">
+
+  <table class="table col-md-6 bg-light mt-5">
+
+    <thead>
+      <tr>
+
+       
+
+
+
+
+      </tr>
+    </thead>
+    <tbody>
+      {{#each products}}
+<tr>
+  <th scope="row">
+    <img class="thumbnail ml-3" style="width: 100px; height: 100px;overflow: hidden; margin: auto;"
+      src="/product-images/{{this.product._id}}.jpg" alt="" srcset=""> <br> <br>
+
+    
+  </th>
+  <td>
+    
+    <h5>{{this.product.Name}}</h5><br>
+    <h6>Delivery with in {{this.product.Days}}</h6>
+    <p style="font-weight: bold;">
+      <i class="fa-solid fa-indian-rupee-sign " style="color: #000000;"></i>
+      {{this.product.Price}}
+    </p>
+
+        
+  
+  </td>
+</tr>
+{{/each}}
+
+</table>
+</div>

@@ -1,0 +1,169 @@
+
+</style>
+<section class="container mb-4">
+    <div class="row">
+        <div class="col-md-4 mt-5 bg-light">
+            <img src="/product-images/{{this.product._id}}.jpg" alt="" class="img-fluid mt-3 mb-3">
+            {{#if user}}
+            <div class="mt-4 mb-5 ml-2">
+                <button onclick="addToCart('{{this.product._id}}')" class="btn btn-success">Add To Cart</button>
+            </div>
+            {{else}}
+            <div class="mt-4 mb-5 ml-2">
+                <button  class="btn btn-success"> <a href="/login" style="text-decoration: none; color:white">Add To Cart</a></button>
+            </div>
+          {{/if}}
+        </div>
+        <div class="col-md-8 mt-5 bg-light">
+            <div class="mb-3 mt-4">
+                <h3>{{this.product.Name}}</h3>
+            </div>
+
+
+            <div class="mb-3 ">
+                <h5>{{this.product.Category}} </h5>
+            </div>
+
+
+            <div class="mb-2 mt-4">
+                <h5>{{this.product.Description}}</h5>
+            </div>
+
+
+            <div class="mb-2 mt-4">
+                <h6>Delivery with in <span>{{this.product.Days}}</span></h6>
+            </div>
+
+
+            <div>
+                <h3> ₹{{this.product.Price}}</h3>
+            </div>
+
+
+            <div class="bg-light mt-3 col-md-12" style="width: 100%;">
+                <span>Bank Offer5% Unlimited Cashback on DeKart Axes Bank Credit Card</span>
+                <span>Bank Offer15% Instant discount on first Pay Later order of ₹500 and above</span>
+                <span>Partner OfferBuy and Get Free 6 months Gaena Plus Subscription</span>
+                <span>No Cost EMI on Bajoj Finserv EMI Card on cart value above ₹2999</span>
+            </div>
+
+
+            <div class="mt-5 ml-5">
+                <img class="img-thumbnail " style="width: 63px;" src="/images/delivery-truck_1981868.png" alt=""
+                    srcset="">
+                <img class="img-thumbnail ml-4 " style="width: 63px;" src="/images/replacement.png" alt="" srcset="">
+                <img class="img-thumbnail ml-4 " style="width: 63px;" src="/images/warrnty.png" alt="" srcset="">
+
+                <p> <span>Cash on</span> <br> delivery</p>
+
+                <p style="margin-left: 83px; margin-top:-63px"> <span class="ml-3">7-days</span> <br> replacement</p>
+
+                <p style="margin-left: 190px; margin-top:-63px"><span>1 Year</span> <br> Warranty</p>
+            </div>
+
+            <table class="table table-bordered mt-5 mb-5">
+                <thead>
+                    <tr>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                        <td>
+                            <h4>Specifications</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h5>Details</h5>
+
+                            <h5 class="mt-5"></h5>
+                            <hr>
+
+
+                            <table class="table caption-top">
+
+                                <thead>
+                                    <tr>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                        <td>
+                                            <h6 class="mt-4"> {{this.product.spec1}} </h6>
+                                        </td>
+
+                                        <td>
+                                            <h6 class="mt-4">{{this.product.spec5}}</h6>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            <h6 class="mt-4"> {{this.product.spec2}} </h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="mt-4">{{this.product.spec6}}</h6>
+                                        </td>
+
+                                    </tr>
+
+
+                                    <tr>
+
+                                        <td>
+                                            <h6 class="mt-4">{{this.product.spec3}} </h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="mt-4">{{this.product.spec7}}</h6>
+                                        </td>
+
+                                    </tr>
+
+
+
+                                    <tr>
+                                        <td>
+                                            <h6 class="mt-4"> {{this.product.spec4}} </h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="mt-4">{{this.product.spec8}}</h6>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <h6 class="mt-4">{{this.product.spec9}}</h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="mt-4">{{this.product.spec11}}</h6>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <h6 class="mt-4">{{this.product.spec10}}</h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="mt-4">{{this.product.spec12}}</h6>
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</section>

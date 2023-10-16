@@ -1,0 +1,57 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light  " style="font-family:Arial, Helvetica, sans-serif;color:white; background-color: #2874f0;">
+        <a class="navbar-brand" href="/">Shopping-Cart</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Products <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/cart">Cart<span class=" nav-linkbadge badge-light" id="cart-Count">{{cartCount}}</span> </a>
+                </li>
+                {{#if user}}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/order-page"> orders</a>
+                </li>{{/if}}
+
+            </ul>
+            <div class="dropdown " style="margin-right: 7%; ">
+                <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{#if user}}
+
+                    {{user.Name}}
+                    
+                    {{else}}
+
+                  Account
+                  {{/if}}
+                </button>
+                <div class="dropdown-menu mt-2 col-md-1" aria-labelledby="dropdownMenuButton">
+                    {{#if user}}
+
+                    <a class="dropdown-item text-center" style="width: -1px;" href="/logout" ><i class="fa-solid fa-right-from-bracket " style="color: #000000;"></i>Logout</a>
+                    {{else}}
+                    <div>
+                    <a class="dropdown-item text-center  " style="width: -1px;" href="/login"><i class="fa-solid fa-user" style="color: #000000;"></i>Login</a>
+                  </div>
+                  {{/if}}
+                
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+
+
+
+

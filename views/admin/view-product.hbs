@@ -1,0 +1,70 @@
+<script>
+  $(document).ready(function () {
+    $("#myInput").on("keyup", function () {
+      var value = $(this).val().toLowerCase();
+      $("#myTable tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+
+</script>
+
+<section>
+
+
+
+
+  <div class="container ">
+     <form action="/search" method="GET">
+
+      <div class="input-group d-flex justify-content-center mt-3">
+        <div class="form-outline">
+          <input id="myInput" type="text" placeholder="Search.." class="form-control rounded" style="width: 290px;">
+
+        </div>
+
+      </div>
+
+    </form>
+
+    <table class="table col-md-6 bg-light mt-4">
+
+      <thead>
+        <tr>
+
+
+
+
+
+<a class="btn btn-success" href="/admin/add-product">Add product</a>
+        </tr>
+      </thead>
+      <tbody id="myTable">
+        {{#each Products}}
+        <tr>
+          <th scope="row">
+            <img class="thumbnail ml-3" style="width: 100px; height: 100px;overflow: hidden; margin: auto;"
+              src="/product-images/{{this._id}}.jpg" alt="" srcset=""> <br> <br>
+            <a href="/admin/edit-product/{{this._id}}" class="btn btn-primary mb-2 ml-4" style="padding-right: 30px; "> Edit</a>
+
+            <a href="/admin/delete-product/{{this._id}}" class="btn btn-danger mb-2  ml-4"
+              onclick=" return confirm('Are you want to delete  {{this.Name}} ?')">Delete</a>
+          </th>
+          <td>
+
+              <h6>{{this.Name}}</h6>
+            <h6>{{this.Category}}</h6>
+            <h6>{{this.Price}}</h6>
+          <h5>{{this.Days}}</h6>
+
+
+
+
+
+          </td>
+        </tr>
+        {{/each}}
+
+    </table>
+  </div>

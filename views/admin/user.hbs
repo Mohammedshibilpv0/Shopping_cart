@@ -1,0 +1,45 @@
+    <style>
+  body {
+    background-image: url(/images/cart.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+
+</style>
+
+<div class="container ">
+
+  <table class="table col-md-6 bg-light mt-4 mb-3">
+
+    <thead>
+      <tr>
+
+       
+
+
+
+
+      </tr>
+    </thead>
+    <tbody>
+      {{#each users}}
+<tr>
+ 
+  <td>
+    <h6>Name</h6>
+    <h5>{{this.Name}}</h5><br>
+    <h6>Email</h6>
+    <h5> {{this.Email}}</h5>
+   
+        
+
+   
+  </td>
+</tr>
+
+{{/each}}
